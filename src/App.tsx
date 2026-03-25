@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import SplashScreen from "./SplashScreen";
 
 const LINE_HEIGHT = 22;
 const MAX_ELEMENTS = 600;
@@ -61,81 +62,84 @@ export default function App() {
   const elements = Array.from({ length: MAX_ELEMENTS });
 
   return (
-    <div
-      style={{
-        height: documentHeight,
-        margin: 0,
-        padding: 0,
-        backgroundColor: "#fafafa",
-        color: "#111",
-        fontFamily: "monospace",
-      }}
-    >
+    <>
+      <SplashScreen />
       <div
         style={{
-          position: "fixed",
-          top: 24,
-          left: 24,
-          display: "flex",
-          flexDirection: "column",
-          gap: "4px",
-          maxWidth: "calc(50vw - 64px)",
+          height: documentHeight,
+          margin: 0,
+          padding: 0,
+          backgroundColor: "#fafafa",
+          color: "#111",
+          fontFamily: "monospace",
         }}
       >
         <div
           style={{
-            fontSize: "14px",
-            letterSpacing: "2px",
-            textTransform: "uppercase",
-            opacity: 0.7,
+            position: "fixed",
+            top: 24,
+            left: 24,
+            display: "flex",
+            flexDirection: "column",
+            gap: "4px",
+            maxWidth: "calc(50vw - 64px)",
           }}
         >
-          Dec-Line
-        </div>
-        <div
-          ref={counterRef}
-          style={{
-            fontSize: 32,
-            fontWeight: "bold",
-            wordBreak: "break-all",
-            lineHeight: 1.2,
-          }}
-        >
-          0
-        </div>
-      </div>
-      <div
-        ref={lineContainerRef}
-        style={{
-          position: "fixed",
-          top: 0,
-          left: "50%",
-          transform: "translateX(-50%)",
-          bottom: 0,
-          width: 20,
-          pointerEvents: "none",
-        }}
-      >
-        {elements.map((_, i) => (
           <div
-            key={i}
             style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              textAlign: "center",
-              height: LINE_HEIGHT,
-              lineHeight: `${LINE_HEIGHT}px`,
-              fontSize: "20px",
-              display: "none",
-              willChange: "transform",
+              fontSize: "14px",
+              letterSpacing: "2px",
+              textTransform: "uppercase",
+              opacity: 0.7,
             }}
           >
-            |
+            Dec-Line
           </div>
-        ))}
+          <div
+            ref={counterRef}
+            style={{
+              fontSize: 32,
+              fontWeight: "bold",
+              wordBreak: "break-all",
+              lineHeight: 1.2,
+            }}
+          >
+            0
+          </div>
+        </div>
+        <div
+          ref={lineContainerRef}
+          style={{
+            position: "fixed",
+            top: 0,
+            left: "50%",
+            transform: "translateX(-50%)",
+            bottom: 0,
+            width: 20,
+            pointerEvents: "none",
+          }}
+        >
+          {elements.map((_, i) => (
+            <div
+              key={i}
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                textAlign: "center",
+                height: LINE_HEIGHT,
+                lineHeight: `${LINE_HEIGHT}px`,
+                fontSize: "20px",
+                display: "none",
+                willChange: "transform",
+              }}
+            >
+              |
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
