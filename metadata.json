@@ -1,0 +1,5 @@
+{
+  "name": "Dec-Line",
+  "description": "A seamless, infinitely scrolling vertical line made of '|' characters with a counter.",
+  "requestFramePermissions": []
+}
